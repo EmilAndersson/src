@@ -1,0 +1,24 @@
+
+<launch>
+
+
+<include file="$(find multi_level_map_server)/launch/example.launch" />
+
+<node name="level_mux" pkg="multi_level_map_utils" type="level_mux">
+    <remap from="level_mux/static_map" to="/static_map"/>
+    <remap from="level_mux/map" to="/map"/>
+    <param name="default_current_level" value="level2"/>
+</node>
+
+<node name="level_selector" pkg="multi_level_map_utils" type="level_selector" />
+
+<include file="$(find p3dx_launch)/launch/move_base.launch" />
+
+
+<include file="$(find amcl)/examples/amcl_diff.launch" />
+		
+
+</launch>
+
+
+

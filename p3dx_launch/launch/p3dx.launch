@@ -1,0 +1,18 @@
+<launch>
+	<!--
+	<param name="/use_sim_time" value="true"/>
+	-->
+	<node name="urg_node" pkg="urg_node" type="urg_node" />
+	<!--
+	<node name= "logitech_web_cam" pkg="usb_cam" type="usb_cam_node" />
+	-->
+	<node name="RosAria" pkg="rosaria" type="RosAria" >
+		<param name="port" value="/dev/ttyUSB0" />
+	
+	</node> 
+	<!--
+	<node pkg="rosaria_client" type="interface" name="RosAria_interface" output="screen"/>
+	-->
+	<node name="tf_broadcaster" pkg="p3dx_launch" type="tf_broadcaster" />
+
+</launch>
